@@ -1,0 +1,140 @@
+@font-face {
+  font-family: 'Calibri';
+  src: url('fonts/Calibri.ttf');
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-family: 'Calibri';
+  border: 1px black;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  padding: 5px 0 5px 0;
+  max-width: 800px;
+  min-width: 600px;
+  width: 100%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.section .item {
+  flex-basis: 100%;
+  display: flex;
+}
+
+.top-name {
+  font-size: 2em;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  flex-basis: 100%;
+  text-align: center;
+  color: green;
+}
+
+.section-header {
+  font-size: 1.5em;
+  flex-basis: 100%;
+  text-align: center;
+  padding-bottom: 5px;
+  display: flex;
+}
+
+.header-left {
+  height: 1px;
+  background: black;
+  flex-basis: 50%;
+  flex-shrink: 1;
+  margin: 12px 0px;
+}
+
+.header-right {
+  height: 1px;
+  background: black;
+  flex-basis: 50%;
+  flex-shrinK: 1;
+  margin: 12px 0px;
+}
+
+.header-text {
+  flex-grow: 1;
+  flex-basis: 35%;
+  color: #019c50;
+}
+
+.item-title {
+  flex-basis: 25%;
+  text-align: left;
+  margin-bottom: 5px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.item-content {
+  flex-basis: 60%;
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin-bottom: 5px;
+}
+
+.item-content ul {
+  margin: 0px;
+  padding: 0px;
+  margin-left: 16px;
+}
+
+.linebreak {
+  border-bottom: 1px solid black;
+}
+
+.item-right img {
+  width: 80px;
+}
+
+@media (max-width: 770px) {
+  .item-right img {
+    display: none;
+  }
+}
+
+@media (max-width: 610px) {
+  .item {
+    flex-direction: column;
+  }
+
+  .item-title, .item-content {
+    flex-basis: auto;
+  }
+
+  .section {
+    min-width: 0;
+  }
+}
+
+/* LONG FORM RESUME HIDDEN BY DEFAULT */
+.section .item.long-form {
+  display: none;
+}
+
+.item-title .position {
+  font-weight: bold;
+  color: #2fa96d;
+}
+
+#work-experience .item {
+  margin-bottom: 10px;
+}
+
+.item-title__green {
+  color: #2fa96d;
+}
