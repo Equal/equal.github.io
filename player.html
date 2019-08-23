@@ -2,7 +2,7 @@
   <body>
     <video id="player" muted></video>
     <script type="text/javascript">
-      const targetWindow = window.opener;
+      const targetWindow = window.opener || window.parent;
       const player = document.getElementById('player');
       const videoEvents = [
         'canplay',
