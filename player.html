@@ -1,0 +1,60 @@
+<html>
+  <body>
+    <video id="player" muted></video>
+    <script type="text/javascript">
+      const targetWindow = window.opener;
+      const player = document.getElementById('player');
+      const videoEvents = [
+        'canplay',
+        'canplaythrough',
+        'complete',
+        'durationchange',
+        'emptied',
+        'ended',
+        'loadeddata',
+        'loadedmetadata',
+        'pause',
+        'play',
+        'playing',
+        'progress',
+        'ratechange',
+        'seeked',
+        'stalled',
+        'suspend',
+        'timeupdate',
+        'volumechange',
+        'waiting'
+      ];
+      videoEvents.forEach(event => {
+        player.addEventListener(event, (...args) => {
+          if (targetWindow) {
+            targetWindow.postMessage({
+              eventName: event,
+              data: args,
+            }, '*');
+          }
+        });
+      });
+      window.addEventListener("message", (e) => {
+        if (!e) { return; }
+        switch (e.data.event) {
+          case 'setSource':
+            player.src = e.data.src;
+            break;
+          case 'play':
+            player.play();
+            break;
+          case 'pause':
+            player.pause();
+            break;
+          case 'setVolume':
+            player.volume = e.data.volume;
+            break;
+          case 'setMuted':
+            player.muted = e.data.isMuted;
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>
