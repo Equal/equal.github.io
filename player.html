@@ -36,6 +36,7 @@
         });
       });
       window.addEventListener("message", (e) => {
+        console.log('received postmessage', e);
         if (!e) { return; }
         switch (e.data.event) {
           case 'setSource':
@@ -54,7 +55,7 @@
             player.muted = e.data.isMuted;
             break;
         }
-      });
+      }, false);
     </script>
   </body>
 </html>
