@@ -126,6 +126,10 @@
   display: none;
 }
 
+.item-content li.hidden {
+  display: none;
+}
+
 .item-title .position {
   font-weight: bold;
   color: #2fa96d;
