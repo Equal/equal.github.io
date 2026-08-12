@@ -171,3 +171,26 @@
 .item-title__green {
   color: black;
 }
+
+@media print {
+  .main {
+    display: block;
+  }
+
+  .section {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 4px 0;
+  }
+
+  .section-header {
+    display: flex;
+  }
+
+  .section .item {
+    display: flex;
+    page-break-inside: avoid;
+  }
+}
